@@ -5,8 +5,10 @@ const elChek = document.querySelector(".js-chek");
 elForm.addEventListener("submit", function (e) {
   e.preventDefault();
   elChek.classList.remove("hidden");
+  orderPizza();
 });
 
+//Select value
 let newArr = [];
 
 elSelect.addEventListener("click", () => {
@@ -16,17 +18,16 @@ elSelect.addEventListener("click", () => {
       name: elSelect.value,
     };
     newArr.push(newObj);
-    console.log(newArr);
     selectDough.textContent = elSelect.value;
   }
 });
 
+//Size pizza
 const elSize = document.querySelectorAll(".size");
-const elSizePizza = document.querySelector("#sizePizza");
 
 for (let i of elSize) {
   i.addEventListener("click", function () {
-    elSizePizza.textContent = i.textContent;
+    sizePizza.textContent = i.textContent;
   });
 }
 
@@ -37,17 +38,13 @@ function orderPizza() {
   let elSelectValPrice = 0;
   if (elSelectVal === "Thin") {
     elSelectValPrice = 10;
-  }
-  else if (elSelectVal === "Medium") {
+  } else if (elSelectVal === "Medium") {
     elSelectValPrice = 12;
-  }
-  else if (elSelectVal === "Thick") {
+  } else if (elSelectVal === "Thick") {
     elSelectValPrice = 15;
+  } else {
+    elSelectValPrice = 0;
   }
-  else {
-    elSelectValPrice = 0
-  }
-  console.log("elSelectValPrice=" + elSelectValPrice);
 
   //Size value price
   let size = document.querySelector('input[name="sizepizza"]:checked').value;
@@ -55,79 +52,70 @@ function orderPizza() {
   let sizePrice = 0;
   if (size === "small") {
     sizePrice = 10;
-  }
-   else if (size === "medium") {
+  } else if (size === "medium") {
     sizePrice = 12;
-  }
-  else if (size === "big") {
+  } else if (size === "big") {
     sizePrice = 15;
+  } else {
+    sizePrice = 0;
   }
-  else {
-    sizePrice = 0
-  }
-  console.log("sizePrice=" + sizePrice);
 
   let checkPizza = document.getElementsByName("checkPizza");
   let checkPizzaPrice = 0;
   let checkPizzaSelect = [];
-  let checkPizzaDisplay = "";
+  let checkPizzaVal = "";
   for (let i = 0; i < checkPizza.length; i++) {
     if (checkPizza[i].checked) {
       checkPizzaSelect.push(checkPizza[i].value);
     }
   }
-  console.log("checkPizzaSelect=" + checkPizzaSelect);
+
   if (checkPizzaSelect.length === 1) {
-    checkPizzaDisplay = checkPizzaSelect[0];
+    checkPizzaVal = checkPizzaSelect[0];
   } else if (checkPizzaSelect.length > 1) {
     for (let j = 0; j < checkPizzaSelect.length; j++) {
-      checkPizzaDisplay += checkPizzaSelect[j];
+      checkPizzaVal += checkPizzaSelect[j];
       if (j < checkPizzaSelect.length - 1) {
-        checkPizzaDisplay += ", ";
+        checkPizzaVal += ", ";
       }
     }
+  } else {
+    checkPizzaVal = "No onPizzas";
   }
   checkPizzaPrice = checkPizzaSelect.length * 5;
-  console.log("checkPizzaPrice=" + checkPizzaPrice);
-  if (checkPizzaSelect.length === 0) {
-    checkPizzaDisplay = "No onPizzas";
-  }
-
 
   let checkAdd = document.getElementsByName("checkAdd");
   let checkAddPrice = 0;
   let checkAddSelect = [];
-  let checkAddDisplay = "";
+  let checkAddVal = "";
   for (let i = 0; i < checkAdd.length; i++) {
     if (checkAdd[i].checked) {
       checkAddSelect.push(checkAdd[i].value);
     }
   }
-  console.log("checkAddSelect=" + checkAddSelect);
+
   if (checkAddSelect.length === 1) {
-    checkAddDisplay = checkAddSelect[0];
+    checkAddVal = checkAddSelect[0];
   } else if (checkAddSelect.length > 1) {
     for (let j = 0; j < checkAddSelect.length; j++) {
-      checkAddDisplay += checkAddSelect[j];
+      checkAddVal += checkAddSelect[j];
       if (j < checkAddSelect.length - 1) {
-        checkAddDisplay += ", ";
+        checkAddVal += ", ";
       }
     }
+  } else {
+    checkAddVal = "No Adds";
   }
+
   checkAddPrice = checkAddSelect.length * 3;
-  console.log("checkAddPrice=" + checkAddPrice);
-  if (checkAddSelect.length === 0) {
-    checkAddDisplay = "No Adds";
-  }
 
-  let totalPrice = checkAddPrice + checkPizzaPrice + sizePrice + elSelectValPrice;
-  console.log("totalPrice=" + totalPrice);
-
+  let totalPrice =
+    checkAddPrice + checkPizzaPrice + sizePrice + elSelectValPrice;
 
   userName.textContent = username.value;
   userNumber.textContent = "+" + number.value;
   userEmail.textContent = email.value;
-  onPizza.textContent = checkPizzaDisplay;
-  addPizza.textContent = checkAddDisplay;
-  total.textContent = 'Total:' + ' ' + totalPrice + '$';
+  onPizza.textContent = checkPizzaVal;
+  addPizza.textContent = checkAddVal;
+  total.textContent = "Total:" + " " + totalPrice + "$";
 }

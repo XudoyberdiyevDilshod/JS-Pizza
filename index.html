@@ -85,22 +85,24 @@
         </div>
       </div>
 
-      <button class="border rounded p-3 bg-slate-500 text-white mr-5" type="submit" onclick="orderPizza()">Save</button>
+      <button class="border rounded p-3 bg-slate-500 text-white mr-5" type="submit">Save</button>
       <button class="border rounded p-3 bg-slate-500 text-white" type="button" onclick="window.location.reload()">Reset</button>
     </form>
 
-    <div class="js-chek hidden w-[600px] border-4 p-7 flex flex-col gap-2 bg-gradient-to-r from-cyan-500 to-blue-500">
-      <h2 class="text-center text-2xl">Order</h2>
-      <p class="text-xl">Name:  <span id="userName"></span></p>
-      <p class="text-xl">Number:  <span id="userNumber"></span></p>  
-      <p class="text-xl">Email:  <span id="userEmail"></span></p>
-      <hr>
-      <p class="text-xl">Dough thickness: <span id="selectDough"></span></p>
-      <p class="text-xl">Size: <span id="sizePizza"></span></p>
-      <p class="text-xl">On Pizza: <span id="onPizza"></span></p>
-      <p class="text-xl">Add: <span id="addPizza"></span></p>
-      <hr>
-      <p class="text-center" id="total"></p>
+    <div class="js-chek hidden">
+      <div class="w-[600px] border-4 p-7 flex flex-col gap-2 bg-gradient-to-r from-cyan-500 to-blue-500">
+        <h2 class="text-center text-2xl">Order</h2>
+        <p class="text-xl">Name:  <span id="userName"></span></p>
+        <p class="text-xl">Number:  <span id="userNumber"></span></p>  
+        <p class="text-xl">Email:  <span id="userEmail"></span></p>
+        <hr>
+        <p class="text-xl">Dough thickness: <span id="selectDough"></span></p>
+        <p class="text-xl">Size: <span id="sizePizza"></span></p>
+        <p class="text-xl">On Pizza: <span id="onPizza"></span></p>
+        <p class="text-xl">Add: <span id="addPizza"></span></p>
+        <hr>
+        <p class="text-center" id="total"></p>
+      </div>
     </div>
   </div>
   <script src="./js/main.js"></script>
