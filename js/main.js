@@ -109,8 +109,7 @@ function orderPizza() {
 
   checkAddPrice = checkAddSelect.length * 3;
 
-  let totalPrice =
-    checkAddPrice + checkPizzaPrice + sizePrice + elSelectValPrice;
+  let totalPrice = checkAddPrice + checkPizzaPrice + sizePrice + elSelectValPrice;
 
   userName.textContent = username.value;
   userNumber.textContent = "+" + number.value;
