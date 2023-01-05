@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[url('./images/pizza.jpg')] bg-no-repeat bg-center">
+  <div class="container mx-auto mt-5 flex justify-between">
+    <form class="w-[600px] border-4 p-7 bg-gradient-to-r from-sky-500 to-indigo-500" id="js-form" name="form">
+      <h1 class="text-4xl text-center mb-5">PIZZA ORDER</h1>
+
+      <div class="flex flex-col gap-3 mb-5">
+        <input class="border rounded border-slate-500 p-3"  type="text" id="username" placeholder="User name" required> 
+        <input class="border rounded border-slate-500 p-3" type="number" id="number" placeholder="Phone number" required>
+        <input class="border rounded border-slate-500 p-3" type="email" id="email" placeholder="User email address" required>
+      </div>
+
+      <div>
+        <label for="select">Dough thickness:</label>
+        <select id="select" class="border rounded border-slate-500 p-1">
+          <option selected disabled>none</option>
+          <option value="Thin">Thin</option>
+          <option value="Medium">Medium</option>
+          <option value="Thick">Thick</option>
+        </select>
+      </div>
+
+      <div class="my-5 flex items-end gap-5">
+        <h2 class="text-xl">Size:</h2>
+        <label class="size" for="small">
+          <input type="radio" id="small" name="sizepizza" value="small">
+          25 sm
+        </label>
+        <label class="size" for="medium">
+          <input type="radio" id="medium" name="sizepizza" value="medium">
+          30 sm
+        </label>
+        <label class="size" for="big">
+          <input type="radio" id="big" name="sizepizza" value="big">
+          35 sm
+        </label>
+      </div>
+
+      <div class="mb-2">
+        <h2 class="mb-2 text-2xl">On pizza:</h2>
+        <div class="flex flex-col gap-2">
+          <label for="Tomato">
+            <input type="checkbox" name="checkPizza" id="Tomato" value="Tomato">
+            Tomato
+          </label>
+          <label for="Pickled-cucumber">
+            <input type="checkbox" name="checkPizza" id="Pickled-cucumber" value="Pickled cucumber">
+            Pickled cucumber
+          </label>
+          <label for="Turkey-meat">
+            <input type="checkbox" name="checkPizza" id="Turkey-meat" value="Turkey meat">
+            Turkey meat
+          </label>
+          <label for="Mushroom">
+            <input type="checkbox" name="checkPizza" id="Mushroom" value="Mushroom">
+            Mushroom
+          </label>
+          <label for="Olive">
+            <input type="checkbox" name="checkPizza" id="Olive" value="Olive">
+            Olive
+          </label>
+          <label for="Horse-meat">
+            <input type="checkbox" name="checkPizza" id="Horse-meat" value="Horse meat">
+            Horse meat
+          </label>
+        </div>
+        <h2 class="my-2 text-2xl">Add:</h2>
+        <div class="flex flex-col gap-2">
+          <label for="Pepper">
+            <input type="checkbox" name="checkAdd" id="Pepper" value="Pepper">
+            Pepper
+          </label>
+          <label for="Sausages">
+            <input type="checkbox" name="checkAdd" id="Sausages" value="Sausages">
+            Sausages
+          </label>
+        </div>
+      </div>
+
+      <button class="border rounded p-3 bg-slate-500 text-white mr-5" type="submit" onclick="orderPizza()">Save</button>
+      <button class="border rounded p-3 bg-slate-500 text-white" type="button" onclick="window.location.reload()">Reset</button>
+    </form>
+
+    <div class="js-chek hidden w-[600px] border-4 p-7 flex flex-col gap-2 bg-gradient-to-r from-cyan-500 to-blue-500">
+      <h2 class="text-center text-2xl">Order</h2>
+      <p class="text-xl">Name:  <span id="userName"></span></p>
+      <p class="text-xl">Number:  <span id="userNumber"></span></p>  
+      <p class="text-xl">Email:  <span id="userEmail"></span></p>
+      <hr>
+      <p class="text-xl">Dough thickness: <span id="selectDough"></span></p>
+      <p class="text-xl">Size: <span id="sizePizza"></span></p>
+      <p class="text-xl">On Pizza: <span id="onPizza"></span></p>
+      <p class="text-xl">Add: <span id="addPizza"></span></p>
+      <hr>
+      <p class="text-center" id="total"></p>
+    </div>
+  </div>
+  <script src="./js/main.js"></script>
+</body>
+</html>
